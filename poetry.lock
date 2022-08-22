@@ -61,6 +61,17 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "coverage"
+version = "6.4.4"
+description = "Code coverage measurement for Python"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+toml = ["tomli"]
+
+[[package]]
 name = "exceptiongroup"
 version = "1.0.0rc8"
 description = "Backport of PEP 654 (exception groups)"
@@ -280,6 +291,18 @@ pprintpp = "*"
 pytest = "*"
 
 [[package]]
+name = "pytest-testmon"
+version = "1.3.4"
+description = "selects tests affected by changed files and methods"
+category = "dev"
+optional = false
+python-versions = "<3.11,>=3.7"
+
+[package.dependencies]
+coverage = ">=5,<7"
+pytest = ">=5,<8"
+
+[[package]]
 name = "sortedcontainers"
 version = "2.4.0"
 description = "Sorted Containers -- Sorted List, Sorted Dict, Sorted Set"
@@ -297,8 +320,8 @@ python-versions = ">=3.7"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "36b2d7eefc74949435d13f23b36b975731fe5a4dc6640076149769ae46327fe2"
+python-versions = ">=3.10,<3.11"
+content-hash = "38e49c833ca854b7084c3e6fd3c6bbf26013d166c515183f8ee8bb60bc3a76d9"
 
 [metadata.files]
 atomicwrites = []
@@ -306,6 +329,7 @@ attrs = []
 black = []
 click = []
 colorama = []
+coverage = []
 exceptiongroup = []
 flake8 = []
 hypothesis = []
@@ -346,6 +370,7 @@ pyflakes = []
 pyparsing = []
 pytest = []
 pytest-icdiff = []
+pytest-testmon = []
 sortedcontainers = [
     {file = "sortedcontainers-2.4.0-py2.py3-none-any.whl", hash = "sha256:a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0"},
     {file = "sortedcontainers-2.4.0.tar.gz", hash = "sha256:25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"},
