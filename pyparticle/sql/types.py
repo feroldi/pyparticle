@@ -8,6 +8,9 @@ class Row:
         }
         self._values = tuple(fields.values())
 
+        for field, value in fields.items():
+            setattr(self, field, value)
+
     def __eq__(self, other) -> bool:
         return (
             isinstance(other, Row)
@@ -16,8 +19,11 @@ class Row:
         )
 
 
-    def __getitem__(self, item: str) -> Any:
-        return self._values[self._index_by_columns[item]]
+    def __getitem__(self, item: Any) -> Any:
+        if isinstance(item, int):
+            return self._values[item]
+        else:
+            return self._values[self._index_by_columns[item]]
 
     # TODO(feroldi): Test.
     def __repr__(self) -> str:
