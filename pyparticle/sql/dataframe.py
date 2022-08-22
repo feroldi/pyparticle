@@ -1,11 +1,13 @@
+from typing import Sequence, List
+
 from pyparticle.sql.types import Row
 
 
 class DataFrame:
-    def __init__(self, rows: list[Row]):
+    def __init__(self, rows: Sequence[Row]):
         self._rows = rows
 
-    def select(self, *columns: list[str]):
+    def select(self, *columns: Sequence[str]):
         return DataFrame(
             [
                 Row(**{column: row[column] for column in columns})
@@ -14,7 +16,7 @@ class DataFrame:
         )
 
 
-    def collect(self) -> list[Row]:
+    def collect(self) -> List[Row]:
         # TODO(feroldi): Deep-copy list.
         return self._rows
 
