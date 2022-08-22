@@ -1,8 +1,8 @@
-from typing import Any
+from typing import Any, Mapping
 
 
 class Row:
-    def __init__(self, **fields: dict[str, Any]):
+    def __init__(self, **fields: Mapping[str, Any]):
         self._index_by_columns = {
             key: i for i, key in enumerate(fields.keys())
         }
